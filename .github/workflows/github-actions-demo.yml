@@ -13,3 +13,8 @@ jobs:
           distribution: 'temurin'
       - name: Build with Maven
         run: mvn install
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-docker-action@v2
+        with:
+          who-to-greet: 'Mona the Octocat'
