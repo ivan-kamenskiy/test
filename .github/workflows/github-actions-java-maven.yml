@@ -15,6 +15,6 @@ jobs:
         run: mvn install
         # set yours docker tag
       - run: |
-          docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} -h ${{ secrets.REGISTRY_HOST }}
+          docker login -h ${{ secrets.REGISTRY_HOST }} -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
           docker build . -t ${{ secrets.REGISTRY_HOST }}/12313210313210321032/${{ github.event.repository.name }}:${GITHUB_RUN_NUMBER}
           docker push ${{ secrets.REGISTRY_HOST }}/12313210313210321032/${{ github.event.repository.name }}:${GITHUB_RUN_NUMBER}
