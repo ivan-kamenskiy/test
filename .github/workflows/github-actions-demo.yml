@@ -10,14 +10,14 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '11'
-          distribution: 'temurin'
+#          distribution: 'temurin'
       - name: Build with Maven
         run: mvn install
-      - uses: docker/login-action@v2
-        name: Login to Docker Hub
-        with:
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+#      - uses: docker/login-action@v2
+#        name: Login to Docker Hub
+#        with:
+#          username: ${{ secrets.REGISTRY_USERNAME }}
+#          password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
           docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
           docker build . -t 12313210313210321032/test:${GITHUB_RUN_NUMBER}
