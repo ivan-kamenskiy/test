@@ -19,5 +19,6 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
-          docker build . -t myapp:${{ github.sha }}
-          docker push myapp:${{ github.sha }}
+          docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
+          docker build . -t myapp:latest
+          docker push myapp:latest
