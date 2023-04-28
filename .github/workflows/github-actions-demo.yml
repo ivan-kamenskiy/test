@@ -20,5 +20,5 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
           docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
-          docker build . -t 12313210313210321032/test:latest
-          docker push 12313210313210321032/test:latest
+          docker build . -t 12313210313210321032/test:${GITHUB_RUN_NUMBER}
+          docker push 12313210313210321032/test:${GITHUB_RUN_NUMBER}
