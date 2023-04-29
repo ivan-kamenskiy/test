@@ -14,11 +14,11 @@ jobs:
       - name: Build with Maven
         run: mvn install
   docker:
-    - runs-on: ubuntu-latest
-      steps:
-        # set yours docker tag
-        - name: docker login, build, push
-          run: |
-            docker login  -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} ${{ secrets.REGISTRY_HOST }}
-            docker build . -t ${{ secrets.REGISTRY_HOST }}/12313210313210321032/${{ github.event.repository.name }}:${GITHUB_RUN_NUMBER}
-            docker push ${{ secrets.REGISTRY_HOST }}/12313210313210321032/${{ github.event.repository.name }}:${GITHUB_RUN_NUMBER}
+    runs-on: ubuntu-latest
+    steps:
+      # set yours docker tag
+      - name: docker login, build, push
+        run: |
+          docker login  -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} ${{ secrets.REGISTRY_HOST }}
+          docker build . -t ${{ secrets.REGISTRY_HOST }}/12313210313210321032/${{ github.event.repository.name }}:${GITHUB_RUN_NUMBER}
+          docker push ${{ secrets.REGISTRY_HOST }}/12313210313210321032/${{ github.event.repository.name }}:${GITHUB_RUN_NUMBER}
