@@ -2,7 +2,7 @@ name: Java build and docker push
 run-name: ${{ github.actor }} Java 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  CI:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
