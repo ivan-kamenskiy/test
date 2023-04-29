@@ -2,7 +2,7 @@ name: Java build and docker push
 run-name: ${{ github.actor }} Java 🚀
 on: [push]
 jobs:
-  build:
+  CI:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,9 +13,6 @@ jobs:
           distribution: 'temurin'
       - name: Build with Maven
         run: mvn install
-  docker:
-    runs-on: ubuntu-latest
-    steps:
       # set yours docker tag
       - name: docker login, build, push
         run: |
